@@ -1,0 +1,33 @@
+AWSCLI:
+1)apt install unzip -y
+2)curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+3)unzip awscliv2.zip
+4)sudo ./aws/install
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+kubectl install:
+1)curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.0/2024-05-12/bin/linux/amd64/kubectl
+2) chmod +x ./kubectl
+3) mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
+4) echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+5) kubectl version –client
+https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
+            or
+1)curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+2)sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+3)kubectl version –client
+
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+EKSCTL :
+
+1)	curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+2)	sudo mv /tmp/eksctl /usr/local/bin
+3)	eksctl version
+https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/setting-up-eksctl.html
+
+To Create: 
+
+eksctl create cluster --name <clustername> --region us-east-1 --node-type t2.small
+
+Delete:
+eksctl delete cluster --name <clustername> --region us-east-1
+
